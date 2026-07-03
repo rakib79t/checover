@@ -188,76 +188,92 @@
                         </div>
                     </div>
 
-                    <!-- Page Frame Mimicking A4 Ratio -->
+                    <!-- Page Frame Mimicking A4 Ratio[cite: 2] -->
                     <div class="preview-container shadow-lg">
-                        <div id="a4Page" class="a4-page">
+                        <div id="a4Page" class="a4-page traditional-word-layout">
+                            <!-- Background Watermark Layer -->
+                            <div class="paper-texture-layer"></div>
+                            <div class="watermark-logo-overlay"></div>
                             
-                            <!-- Header Info -->
+                            <!-- Institutional Header -->
                             <div class="a4-header text-center">
-                                <div class="logo-wrapper mb-3">
+                                <h1 class="univ-title">DHAKA UNIVERSITY OF ENGINEERING & TECHNOLOGY, GAZIPUR</h1>
+                                <h2 class="dept-title-view">DEPARTMENT OF <span id="viewDept">CHEMICAL ENGINEERING</span></h2>
+                                
+                                <div class="logo-wrapper my-4">
                                     <img id="previewLogo" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Dhaka_University_of_Engineering_%26_Technology%2C_Gazipur_logo.png" alt="DUET Logo" onerror="this.style.display='none'">
                                 </div>
-                                <h1 class="univ-title">DHAKA UNIVERSITY OF ENGINEERING & TECHNOLOGY</h1>
-                                <h2 class="univ-location">GAZIPUR-1707, BANGLADESH</h2>
-                                <div class="dept-wrap mt-3">
-                                    <p class="label-heading mb-1">DEPARTMENT OF</p>
-                                    <h3 id="viewDept" class="dynamic-text text-uppercase fw-bold text-dark">COMPUTER SCIENCE & ENGINEERING</h3>
+                            </div>
+
+                            <!-- Course Metrics Matrix (Bordered Section) -->
+                            <div class="course-info-bordered-box my-4 p-3 text-center">
+                                <div class="course-row-item mb-2">
+                                    <span class="label-heading">Course No:</span> 
+                                    <span id="viewCourseCode" class="value-highlight">ChE-3709</span>
+                                </div>
+                                <div class="course-row-item mb-1">
+                                    <span class="label-heading">Course Title:</span> 
+                                    <span id="viewCourseTitle" class="value-highlight">Environmental Management and Control</span>
+                                </div>
+                                <div class="assignment-title-container mt-3 pt-2 border-top border-light-subtle">
+                                    <span class="label-heading d-block mb-1 text-muted small text-uppercase">Assignment / Experiment Title:</span>
+                                    <h4 id="viewExpTitle" class="dynamic-text fw-bold font-serif m-0 text-dark">EXPERIMENT TITLE GOES HERE</h4>
                                 </div>
                             </div>
 
-                            <hr class="accent-bar my-4">
-
-                            <!-- Assignment Banner Area -->
-                            <div class="assignment-meta-box text-center py-3 my-3">
-                                <span class="badge bg-dark px-3 py-2 text-uppercase tracking-wider mb-2">Report / Assignment</span>
-                                <h4 id="viewExpTitle" class="dynamic-text text-primary font-serif fw-bold px-3">EXPERIMENT TITLE GOES HERE</h4>
-                            </div>
-
-                            <!-- Course Metrics Matrix -->
-                            <div class="row row-metrics g-0 border-top border-bottom py-2 my-3 text-center bg-light">
-                                <div class="col-6 border-end">
-                                    <small class="text-muted d-block uppercase-track">Course Code</small>
-                                    <strong id="viewCourseCode" class="dynamic-text text-dark">CSE-0000</strong>
-                                </div>
-                                <div class="col-6">
-                                    <small class="text-muted d-block uppercase-track">Course Title</small>
-                                    <strong id="viewCourseTitle" class="dynamic-text text-dark">Course Title Placeholder</strong>
-                                </div>
-                            </div>
-
-                            <!-- Dual Block Layout for Personnel Details -->
-                            <div class="row personnel-grid mt-5 pt-3">
+                            <!-- Dual Block Personnel Details Layout -->
+                            <div class="row personnel-grid mt-4">
                                 <!-- Submitted To Section -->
-                                <div class="col-6 pe-4 border-end">
-                                    <h5 class="block-heading mb-3 text-secondary border-bottom pb-1">SUBMITTED TO:</h5>
-                                    <div class="meta-profile">
-                                        <h6 id="viewTeacherName" class="fw-bold mb-1 text-dark text-uppercase">Faculty Name</h6>
-                                        <p id="viewTeacherDesg" class="mb-0 text-muted lh-sm">Faculty Designation</p>
-                                        <p id="viewTeacherDept" class="text-muted lh-sm">Department of Architecture</p>
-                                        <p class="small-org text-primary mt-2">DUET, Gazipur</p>
+                                <div class="col-6 pe-3">
+                                    <div class="professional-info-card submitted-to-card h-100">
+                                        <h5 class="block-heading">Submitted To:</h5>
+                                        <div class="meta-profile mt-2">
+                                            <h6 id="viewTeacherName" class="fw-bold text-dark m-0">Mr. Akramul Haque</h6>
+                                            <p id="viewTeacherDesg" class="text-muted small my-1">Assistant Professor</p>
+                                            <p id="viewTeacherDept" class="text-muted small m-0">Institute of Water and Environment, DUET</p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <!-- Submitted By Section -->
-                                <div class="col-6 ps-4">
-                                    <h5 class="block-heading mb-3 text-secondary border-bottom pb-1">SUBMITTED BY:</h5>
-                                    <div class="meta-profile">
-                                        <h6 id="viewStudentName" class="fw-bold mb-1 text-dark text-uppercase">Student Name</h6>
-                                        <p class="mb-1 text-muted"><strong>ID / Roll:</strong> <span id="viewStudentId">000000</span></p>
-                                        <p class="mb-0 text-muted lh-sm"><span id="viewYear">4th</span> Year, <span id="viewSemester">1st</span> Semester</p>
-                                        <p class="text-muted lh-sm">Session: <span id="viewSession">2023-24</span></p>
+                                <div class="col-6 ps-3">
+                                    <div class="professional-info-card submitted-by-card h-100">
+                                        <h5 class="block-heading">Submitted By:</h5>
+                                        <div class="meta-profile mt-2">
+                                            <h6 id="viewStudentName" class="fw-bold text-dark mb-2">Md. Shakib Hossain</h6>
+                                            <p class="text-muted small my-1"><strong>Student ID:</strong> <span id="viewStudentId">2208013</span></p>
+                                            <p class="text-muted small my-1"><strong>Year:</strong> <span id="viewYear">3rd</span></p>
+                                            <p class="text-muted small m-0"><strong>Semester:</strong> <span id="viewSemester">Odd</span></p>
+                                            <p class="text-muted small mt-1 mb-0 d-none">Session: <span id="viewSession">—</span></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Footnotes & Timeline Info -->
-                            <div class="a4-footer border-top pt-3">
-                                <div class="row text-center text-muted small">
+                            <!-- Digital Signature & Footnote/Timelines Section -->
+                            <div class="a4-footer mt-auto pt-3 border-top">
+                                <div class="row text-center text-muted small mb-3">
                                     <div class="col-6 border-end">
-                                        <span>Date of Performance:</span> <strong id="viewExpDate" class="text-dark d-block mt-1">—</strong>
+                                        <span class="text-uppercase tracking-wider small d-block text-secondary">Date of Performance:</span>
+                                        <strong id="viewExpDate" class="text-dark d-block mt-1">2 November 2025</strong>
                                     </div>
                                     <div class="col-6">
-                                        <span>Date of Submission:</span> <strong id="viewSubDate" class="text-dark d-block mt-1">—</strong>
+                                        <span class="text-uppercase tracking-wider small d-block text-secondary">Date of Submission:</span>
+                                        <strong id="viewSubDate" class="text-dark d-block mt-1">5 November 2025</strong>
+                                    </div>
+                                </div>
+                                <div class="signature-line-row row pt-4 mt-2 px-3">
+                                    <div class="col-6 text-start">
+                                        <div class="signature-block">
+                                            <div class="signature-line"></div>
+                                            <span class="signature-label text-uppercase">Student's Signature</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <div class="signature-block ms-auto">
+                                            <div class="signature-line"></div>
+                                            <span class="signature-label text-uppercase">Evaluator's Signature</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +286,7 @@
         </div>
     </div>
 
-    <!-- Modular JS loading scripts -->
+    <!-- Modular JS loading scripts[cite: 2] -->
     <script src="data.js"></script>
     <script src="theme.js"></script>
     <script src="pdf.js"></script>
