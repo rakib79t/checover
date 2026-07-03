@@ -9,22 +9,24 @@ const DocumentExporter = {
         targetElement.style.transform = "none";
 
         try {
+            // Enhanced captured resolution up to high scale parameter for absolute ultra-clear vectors print output text execution bounds mapping
             const canvas = await html2canvas(targetElement, {
-                scale: 3, // High DPI rendering
+                scale: 5, // Increased scaling parameter vector extraction matrix factor
                 useCORS: true,
                 allowTaint: true,
                 logging: false,
                 backgroundColor: "#ffffff"
             });
 
-            const imgData = canvas.toDataURL('image/jpeg', 1.0);
+            // Replaced lossy compressed JPEG with lossless PNG formatting vectors logic matrix pipeline map tracking profiles conversion loop metrics
+            const imgData = canvas.toDataURL('image/png', 1.0);
             const pdf = new jsPDF({
                 orientation: 'portrait',
                 unit: 'mm',
                 format: 'a4'
             });
 
-            pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+            pdf.addImage(imgData, 'PNG', 0, 0, 210, 297, undefined, 'FAST');
             pdf.save(filename);
         } catch (error) {
             console.error("PDF generation failure occurred:", error);
@@ -41,7 +43,7 @@ const DocumentExporter = {
 
         try {
             const canvas = await html2canvas(targetElement, {
-                scale: 3,
+                scale: 5, // High definition asset scale tracking resolution multiplier parameter
                 useCORS: true,
                 allowTaint: true,
                 backgroundColor: "#ffffff"
