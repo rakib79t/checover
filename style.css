@@ -1,0 +1,284 @@
+/* Custom CSS variables for clean switching systems */
+:root {
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(255, 255, 255, 0.4);
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(31, 38, 135, 0.08);
+}
+
+.dark-mode {
+    --bg-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    --card-bg: rgba(45, 55, 72, 0.85);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #edf2f7;
+    --text-muted: #a0aec0;
+    --nav-bg: rgba(26, 32, 44, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-section {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.dark-mode .form-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.section-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    color: #0d6efd;
+}
+
+.style-pointer {
+    cursor: pointer;
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    color: var(--text-main);
+}
+.dark-mode .btn-icon {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Form Styling overrides */
+.form-control, .form-select {
+    background-color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.15);
+    color: #1a202c !important;
+}
+.dark-mode .form-control, .dark-mode .form-select {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    background-color: #fff;
+}
+
+/* Print View Mechanics Engine Container */
+.sticky-preview-wrapper {
+    position: sticky;
+    top: 90px;
+}
+
+.preview-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #525659;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Standard Absolute Real A4 Metrics */
+.a4-page {
+    width: 210mm;
+    height: 297mm;
+    min-width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    padding: 25mm 20mm 20mm 20mm;
+    color: #000000 !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography on Canvas Output Rendering */
+.univ-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19pt;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin: 0;
+}
+
+.univ-location {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    color: #333;
+}
+
+.label-heading {
+    font-size: 11pt;
+    letter-spacing: 2px;
+    color: #555;
+}
+
+.accent-bar {
+    border: none;
+    height: 3px;
+    background: #000;
+    opacity: 1;
+}
+
+.logo-wrapper {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper img {
+    max-height: 90px;
+    object-fit: contain;
+}
+
+.assignment-meta-box {
+    border: 2px dashed #000;
+    border-radius: 4px;
+    flex-grow: 0;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.tracking-wider {
+    letter-spacing: 1.5px;
+}
+
+.uppercase-track {
+    text-transform: uppercase;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.personnel-grid {
+    flex-grow: 1;
+}
+
+.block-heading {
+    font-size: 10.5pt;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+}
+
+.meta-profile h6 {
+    font-size: 12pt;
+}
+
+.meta-profile p {
+    font-size: 10.5pt;
+}
+
+.a4-footer {
+    margin-top: auto;
+}
+
+/* Global scale down adjustment rule for container UI workflow interface metrics preview screen layout adjustments */
+@media (max-width: 1400px) {
+    .preview-container {
+        padding: 10px;
+    }
+    .a4-page {
+        transform: scale(0.75);
+        transform-origin: top center;
+        margin-bottom: -75mm; /* Offsetting phantom layout heights natively */
+    }
+}
+
+@media (max-width: 1200px) {
+    .a4-page {
+        transform: scale(0.55);
+        margin-bottom: -135mm;
+    }
+}
+
+@media (max-width: 992px) {
+    .sticky-preview-wrapper {
+        position: static;
+    }
+    .a4-page {
+        transform: scale(0.85);
+        margin-bottom: -45mm;
+    }
+}
+
+@media (max-width: 768px) {
+    .a4-page {
+        transform: scale(0.65);
+        margin-bottom: -105mm;
+    }
+}
+
+@media (max-width: 576px) {
+    .a4-page {
+        transform: scale(0.42);
+        margin-bottom: -175mm;
+    }
+}
+
+/* Explicit layout specifications specifically engineered for local device print window operations system */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #a4Page, #a4Page * {
+        visibility: visible;
+    }
+    #a4Page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        height: 297mm;
+        padding: 20mm;
+        box-shadow: none;
+        transform: scale(1) !important;
+        margin: 0 !important;
+    }
+}
