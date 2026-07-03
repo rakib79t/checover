@@ -63,11 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (inputEl && viewEl) {
                 const handler = () => {
                     let val = inputEl.value;
+                    
                     // Format output checks
                     if ((id === 'expDate' || id === 'subDate') && val) {
                         const d = new Date(val);
                         val = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
                     }
+                    
+                    // Enforce Sentence case for experiment titles (1st letter uppercase, rest standard case)
+                    if (id === 'expTitle' && val) {
+                        val = val.charAt(0).toUpperCase() + val.slice(1);
+                    }
+                    
                     viewEl.innerText = val || "—";
                     
                     if (id === 'expTitle') {
