@@ -2,23 +2,27 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Form Node bindings
     const form = document.getElementById("coverForm");
-    const inputs = form.querySelectorAll("input, select");
+    const inputs = form.querySelectorAll("input, select, textarea");
     
     // Auto-Populate Autocomplete Form Controls
     const populateDatalists = () => {
         const deptList = document.getElementById("deptOptions");
-        DUET_DATA_HUB.departments.forEach(d => {
-            let opt = document.createElement("option");
-            opt.value = d;
-            deptList.appendChild(opt);
-        });
+        if (deptList && typeof DUET_DATA_HUB !== "undefined") {
+            DUET_DATA_HUB.departments.forEach(d => {
+                let opt = document.createElement("option");
+                opt.value = d;
+                deptList.appendChild(opt);
+            });
+        }
 
         const teacherList = document.getElementById("teacherOptions");
-        DUET_DATA_HUB.teachers.forEach(t => {
-            let opt = document.createElement("option");
-            opt.value = t.name;
-            teacherList.appendChild(opt);
-        });
+        if (teacherList && typeof DUET_DATA_HUB !== "undefined") {
+            DUET_DATA_HUB.teachers.forEach(t => {
+                let opt = document.createElement("option");
+                opt.value = t.name;
+                teacherList.appendChild(opt);
+            });
+        }
     };
 
     // Auto Font Resizing Engine for dynamic text parameters
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Safe Data Binding Loop updating View Canvas elements synchronously
     const bindLivePreview = () => {
-        // Map form IDs to target Element DOM strings directly
+        // Map form IDs to target Element DOM strings directly (Updated to include teacherUniv)
         const mapping = {
             "deptInput": "viewDept",
             "courseCode": "viewCourseCode",
@@ -47,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "teacherName": "viewTeacherName",
             "teacherDesignation": "viewTeacherDesg",
             "teacherDept": "viewTeacherDept",
+            "teacherUniv": "viewTeacherUniv",
             "expDate": "viewExpDate",
             "subDate": "viewSubDate"
         };
@@ -66,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     viewEl.innerText = val || "—";
                     
                     if (id === 'expTitle') {
-                        autoResizeText(viewEl, 18, 10);
+                        autoResizeText(viewEl, 19, 10);
                     }
                 };
 
@@ -76,38 +81,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Setup autocomplete event behaviors directly mapped to teacher/course lists
-        document.getElementById("teacherName").addEventListener("change", (e) => {
-            const match = DUET_DATA_HUB.teachers.find(t => t.name === e.target.value);
-            if (match) {
-                document.getElementById("teacherDesignation").value = match.designation;
-                document.getElementById("teacherDept").value = match.dept;
-                // Dispatch event updates to fire live sync cycles refresh
-                document.getElementById("teacherDesignation").dispatchEvent(new Event('input'));
-                document.getElementById("teacherDept").dispatchEvent(new Event('input'));
-            }
-        });
+        const teacherNameInput = document.getElementById("teacherName");
+        if (teacherNameInput) {
+            teacherNameInput.addEventListener("change", (e) => {
+                if (typeof DUET_DATA_HUB !== "undefined") {
+                    const match = DUET_DATA_HUB.teachers.find(t => t.name === e.target.value);
+                    if (match) {
+                        document.getElementById("teacherDesignation").value = match.designation;
+                        document.getElementById("teacherDept").value = match.dept;
+                        // Dispatch event updates to fire live sync cycles refresh
+                        document.getElementById("teacherDesignation").dispatchEvent(new Event('input'));
+                        document.getElementById("teacherDept").dispatchEvent(new Event('input'));
+                    }
+                }
+            });
+        }
 
-        document.getElementById("courseCode").addEventListener("input", (e) => {
-            const match = DUET_DATA_HUB.courses.find(c => c.code.toLowerCase() === e.target.value.toLowerCase().trim());
-            if (match) {
-                document.getElementById("courseTitle").value = match.title;
-                document.getElementById("courseTitle").dispatchEvent(new Event('input'));
-            }
-        });
+        const courseCodeInput = document.getElementById("courseCode");
+        if (courseCodeInput) {
+            courseCodeInput.addEventListener("input", (e) => {
+                if (typeof DUET_DATA_HUB !== "undefined") {
+                    const match = DUET_DATA_HUB.courses.find(c => c.code.toLowerCase() === e.target.value.toLowerCase().trim());
+                    if (match) {
+                        document.getElementById("courseTitle").value = match.title;
+                        document.getElementById("courseTitle").dispatchEvent(new Event('input'));
+                    }
+                }
+            });
+        }
     };
 
     // Custom Canvas Logo Uploader Handler Matrix
-    document.getElementById("logoUpload").addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("previewLogo").src = event.target.result;
-                document.getElementById("previewLogo").style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+    const logoUploadInput = document.getElementById("logoUpload");
+    if (logoUploadInput) {
+        logoUploadInput.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("previewLogo").src = event.target.result;
+                    document.getElementById("previewLogo").style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
 
     // Local Storage Autosave Systems Pipeline Functions
     const saveStateToLocalStorage = () => {
@@ -147,7 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
         localStorage.removeItem("duet_cover_autosave");
         inputs.forEach(i => i.dispatchEvent(new Event('input')));
-        document.getElementById("previewLogo").src = "https://upload.wikimedia.org/wikipedia/en/b/bf/Dhaka_University_of_Engineering_%26_Technology%2C_Gazipur_logo.png";
+        // Locked to the configured image asset profile corresponding to image_f85cf0.png
+        document.getElementById("previewLogo").src = "logo.png";
     });
 
     // Data Actions Engine Setup configurations
