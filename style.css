@@ -1,372 +1,51 @@
-/* Custom CSS variables for clean switching systems */
 :root {
     --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: rgba(255, 255, 255, 0.4);
-    --text-main: #2d3748;
-    --text-muted: #718096;
-    --nav-bg: rgba(255, 255, 255, 0.8);
-    --shadow-color: rgba(31, 38, 135, 0.08);
     --duet-blue: #003366;
 }
 
-.dark-mode {
-    --bg-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-    --card-bg: rgba(45, 55, 72, 0.85);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --text-main: #edf2f7;
-    --text-muted: #a0aec0;
-    --nav-bg: rgba(26, 32, 44, 0.8);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-}
+body { font-family: 'Inter', sans-serif; background: var(--bg-gradient); }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg-gradient);
-    color: var(--text-main);
-    min-height: 100vh;
-    transition: background 0.4s ease, color 0.4s ease;
-}
+.glass-card { background: var(--card-bg); backdrop-filter: blur(8px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.4); }
 
-/* Glassmorphism Navigation and Config Panels */
-.glass-nav {
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--card-border);
-}
-
-.glass-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 8px 32px 0 var(--shadow-color);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-section {
-    background: rgba(0, 0, 0, 0.02);
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-}
-.dark-mode .form-section {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.section-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
-    color: #0d6efd;
-}
-
-.style-pointer {
-    cursor: pointer;
-}
-
-.btn-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.05);
-    border: none;
-    color: var(--text-main);
-}
-.dark-mode .btn-icon {
-    background: rgba(255,255,255,0.1);
-}
-
-.form-control, .form-select {
-    background-color: rgba(255,255,255,0.7);
-    border: 1px solid rgba(0,0,0,0.15);
-    color: #1a202c !important;
-}
-.dark-mode .form-control, .dark-mode .form-select {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* Print View Mechanics Engine Container[cite: 6] */
-.sticky-preview-wrapper {
-    position: sticky;
-    top: 90px;
-}
-
-.preview-container {
-    width: 100%;
-    overflow-x: auto;
-    background: #525659;
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-}
-
-/* Absolute Real A4 Metrics with Word Document Visual Profile[cite: 6] */
+/* A4 Page Styling */
 .a4-page {
-    width: 210mm;
-    height: 297mm;
-    min-width: 210mm;
-    min-height: 297mm;
-    background: #ffffff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    box-sizing: border-box;
-    padding: 25mm 22mm 22mm 22mm;
-    color: #000000 !important;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: #ffffff !important;
+    width: 210mm; min-height: 297mm; background: #ffffff;
+    padding: 25mm 22mm 22mm 22mm; margin: 0 auto;
+    display: flex; flex-direction: column; position: relative;
 }
 
-/* Subtle Paper Texture Layer Background Enhancement */
-.paper-texture-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 1;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
+/* Typography */
+.univ-title { font-family: 'Times New Roman', serif; font-size: 20pt; font-weight: 700; color: #000; }
+.dept-title-view { font-family: 'Times New Roman', serif; font-size: 16pt; font-weight: 700; color: var(--duet-blue); }
 
-/* Transparent Centered Logo Overlay Background Watermark */
-.watermark-logo-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100mm;
-    height: 100mm;
-    transform: translate(-50%, -50%);
-    opacity: 0.035;
-    pointer-events: none;
-    z-index: 2;
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/b/bf/Dhaka_University_of_Engineering_%26_Technology%2C_Gazipur_logo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
+/* Clean, Borderless Course & Title Layout */
+.course-info-clean-section { padding: 10px 0; border: none !important; }
+.course-info-clean-section .course-row-item { font-family: 'Times New Roman', serif; font-size: 16pt; color: #000; line-height: 1.4; }
+.course-info-clean-section .label-heading { font-weight: 700; }
 
-/* Document Typography Elements[cite: 6] */
-.traditional-word-layout .univ-title {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22pt;
+/* Enhanced Experiment Title Container for Long Texts */
+.experiment-title-container { padding-top: 15px; }
+.experiment-label-tag { font-family: 'Times New Roman', serif; font-size: 13pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #444; }
+
+/* High-Capacity Dynamic Typography for Long Experiment Titles */
+.dynamic-title-text {
+    font-size: 16pt; 
     font-weight: 700;
     line-height: 1.3;
-    letter-spacing: 0.2px;
-    color: #000000;
-    margin: 0 auto 8px auto;
-}
-
-.traditional-word-layout .dept-title-view {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18pt;
-    font-weight: 700;
-    color: var(--duet-blue);
+    max-width: 95%;
     margin: 0 auto;
-    letter-spacing: 0.2px;
-}
-
-.traditional-word-layout .logo-wrapper {
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-}
-.traditional-word-layout .logo-wrapper img {
-    max-height: 110px;
-    object-fit: contain;
-}
-
-/* Bordered Section Design Framework */
-.course-info-bordered-box {
-    border: 1.5px solid #000000;
-    border-radius: 6px;
-    background-color: rgba(0, 51, 102, 0.01);
-    z-index: 3;
-    position: relative;
-}
-
-.course-info-bordered-box .course-row-item {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16pt;
-    color: #000000;
-}
-
-.course-info-bordered-box .label-heading {
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.course-info-bordered-box .value-highlight {
-    font-weight: 500;
-}
-
-.course-info-bordered-box #viewExpTitle {
-    font-size: 18pt;
-    font-weight: 700;
-    line-height: 1.4;
-    color: #111111;
-}
-
-/* Section Card Layouts for Submissions */
-.personnel-grid {
-    z-index: 3;
-    flex-grow: 1;
-}
-
-.professional-info-card {
-    background: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 6px;
-    padding: 18px;
-    position: relative;
-}
-
-.professional-info-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background-color: var(--duet-blue);
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-}
-
-.professional-info-card .block-heading {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 13pt;
-    font-weight: 700;
-    color: #444444;
-    border-bottom: 1px dashed #cccccc;
-    padding-bottom: 4px;
-    margin: 0 0 10px 0;
+    word-wrap: break-word;
     text-transform: uppercase;
+    font-family: 'Times New Roman', serif;
 }
 
-.professional-info-card h6 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 14pt;
-    font-weight: 700;
-}
+/* Personnel Section */
+.professional-info-card { background: #fff; border-left: 4px solid var(--duet-blue); padding: 10px 15px; }
+.block-heading { font-family: 'Times New Roman', serif; font-size: 12pt; font-weight: 700; text-transform: uppercase; border-bottom: 1px dashed #ccc; }
 
-.professional-info-card p {
-    font-family: 'Inter', sans-serif;
-    font-size: 11pt;
-    line-height: 1.4;
-}
-
-/* Footer Section Alignment */
-.a4-footer {
-    z-index: 3;
-    margin-top: auto;
-    border-top: 1px solid #dddddd !important;
-}
-
-.a4-footer strong {
-    font-size: 12pt;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.signature-block {
-    width: 170px;
-    display: inline-block;
-}
-
-.signature-line {
-    border-bottom: 1px solid #888888;
-    height: 40px;
-    width: 100%;
-    margin-bottom: 6px;
-}
-
-.signature-label {
-    font-size: 8.5pt;
-    letter-spacing: 0.8px;
-    font-weight: 600;
-    color: #555555;
-    display: block;
-}
-
-.font-serif {
-    font-family: 'Times New Roman', Times, serif !important;
-}
-
-/* Global scale down adjustment rule for container UI workflow interface metrics preview screen layout adjustments[cite: 6] */
-@media (max-width: 1400px) {
-    .preview-container {
-        padding: 10px;
-    }
-    .a4-page {
-        transform: scale(0.75);
-        transform-origin: top center;
-        margin-bottom: -75mm;
-    }
-}
-
-@media (max-width: 1200px) {
-    .a4-page {
-        transform: scale(0.55);
-        margin-bottom: -135mm;
-    }
-}
-
-@media (max-width: 992px) {
-    .sticky-preview-wrapper {
-        position: static;
-    }
-    .a4-page {
-        transform: scale(0.85);
-        margin-bottom: -45mm;
-    }
-}
-
-@media (max-width: 768px) {
-    .a4-page {
-        transform: scale(0.65);
-        margin-bottom: -105mm;
-    }
-}
-
-@media (max-width: 576px) {
-    .a4-page {
-        transform: scale(0.42);
-        margin-bottom: -175mm;
-    }
-}
-
-/* Explicit device print configurations[cite: 6] */
 @media print {
-    body * {
-        visibility: hidden;
-    }
-    #a4Page, #a4Page * {
-        visibility: visible;
-    }
-    #a4Page {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 210mm;
-        height: 297mm;
-        padding: 25mm 22mm 22mm 22mm;
-        box-shadow: none !important;
-        transform: scale(1) !important;
-        margin: 0 !important;
-    }
+    body * { visibility: hidden; }
+    #a4Page, #a4Page * { visibility: visible; }
+    #a4Page { position: absolute; left: 0; top: 0; }
 }
