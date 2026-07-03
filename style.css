@@ -7,8 +7,7 @@
     --text-muted: #718096;
     --nav-bg: rgba(255, 255, 255, 0.8);
     --shadow-color: rgba(31, 38, 135, 0.08);
-    --duet-blue: #003366; /* Elegant institutional blue accent */
-    --duet-dark: #111111;
+    --duet-blue: #003366;
 }
 
 .dark-mode {
@@ -29,7 +28,7 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Glassmorphism Classes with Smooth Transitions */
+/* Glassmorphism Navigation and Config Panels */
 .glass-nav {
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
@@ -44,11 +43,7 @@ body {
     border-radius: 16px;
     border: 1px solid var(--card-border);
     box-shadow: 0 8px 32px 0 var(--shadow-color);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-}
-.glass-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 38px 0 var(--shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-section {
@@ -56,10 +51,6 @@ body {
     padding: 18px;
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.04);
-    transition: border-color 0.3s ease;
-}
-.form-section:hover {
-    border-color: rgba(13, 110, 253, 0.15);
 }
 .dark-mode .form-section {
     background: rgba(255, 255, 255, 0.03);
@@ -89,33 +80,22 @@ body {
     background: rgba(0,0,0,0.05);
     border: none;
     color: var(--text-main);
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-.btn-icon:hover {
-    transform: scale(1.05);
 }
 .dark-mode .btn-icon {
     background: rgba(255,255,255,0.1);
 }
 
-/* Form Styling overrides */
 .form-control, .form-select {
     background-color: rgba(255,255,255,0.7);
     border: 1px solid rgba(0,0,0,0.15);
     color: #1a202c !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .dark-mode .form-control, .dark-mode .form-select {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(255,255,255,0.2);
 }
-.form-control:focus, .form-select:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    background-color: #fff;
-    border-color: #0d6efd;
-}
 
-/* Print View Mechanics Engine Container */
+/* Print View Mechanics Engine Container[cite: 6] */
 .sticky-preview-wrapper {
     position: sticky;
     top: 90px;
@@ -131,70 +111,46 @@ body {
     justify-content: center;
 }
 
-/* Standard Absolute Real A4 Metrics & InDesign Grade Print Template */
+/* Absolute Real A4 Metrics with Word Document Visual Profile[cite: 6] */
 .a4-page {
     width: 210mm;
     height: 297mm;
     min-width: 210mm;
     min-height: 297mm;
     background: #ffffff;
-    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
     box-sizing: border-box;
     padding: 25mm 22mm 22mm 22mm;
-    color: var(--duet-dark) !important;
+    color: #000000 !important;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #ffffff !important; /* Locks background print matrix color output */
+    background-color: #ffffff !important;
 }
 
-/* Premium Dynamic Structural Borders */
-.premium-border-layout::before {
-    content: "";
-    position: absolute;
-    top: 12mm;
-    left: 12mm;
-    right: 12mm;
-    bottom: 12mm;
-    border: 1px solid #dddddd;
-    pointer-events: none;
-    z-index: 5;
-}
-.premium-border-layout::after {
-    content: "";
-    position: absolute;
-    top: 13.5mm;
-    left: 13.5mm;
-    right: 13.5mm;
-    bottom: 13.5mm;
-    border: 2px solid var(--duet-blue);
-    pointer-events: none;
-    z-index: 5;
-}
-
-/* High-Fidelity Paper Texture Mimic Layer */
+/* Subtle Paper Texture Layer Background Enhancement */
 .paper-texture-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.04;
+    opacity: 0.03;
     pointer-events: none;
     z-index: 1;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Transparent Center Watermark Logo */
+/* Transparent Centered Logo Overlay Background Watermark */
 .watermark-logo-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 110mm;
-    height: 110mm;
+    width: 100mm;
+    height: 100mm;
     transform: translate(-50%, -50%);
-    opacity: 0.035; /* Strict 3.5% design guidelines metric target */
+    opacity: 0.035;
     pointer-events: none;
     z-index: 2;
     background-image: url('https://upload.wikimedia.org/wikipedia/en/b/bf/Dhaka_University_of_Engineering_%26_Technology%2C_Gazipur_logo.png');
@@ -203,145 +159,83 @@ body {
     background-size: contain;
 }
 
-/* Typography on Canvas Output Rendering */
-.univ-title {
+/* Document Typography Elements[cite: 6] */
+.traditional-word-layout .univ-title {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 22pt; /* Typography constraint strict specification binding */
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.75px;
-    color: var(--duet-dark);
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.univ-location {
-    font-family: 'Inter', sans-serif;
-    font-size: 11pt;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin-top: 6px;
-    color: #444444;
-}
-
-.label-heading {
-    font-family: 'Inter', sans-serif;
-    font-size: 11pt;
-    letter-spacing: 2px;
-    color: #555555;
-    font-weight: 500;
-}
-
-#viewDept {
-    font-size: 18pt; /* Typography specification mapping */
+    font-size: 22pt;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--duet-blue) !important;
+    letter-spacing: 0.2px;
+    color: #000000;
+    margin: 0 auto 8px auto;
 }
 
-/* Elegant Divider Design System */
-.premium-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    z-index: 3;
-}
-.premium-divider .divider-line {
-    height: 1px;
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
-    flex-grow: 1;
-}
-.premium-divider .divider-diamond {
-    width: 8px;
-    height: 8px;
-    background: var(--duet-blue);
-    transform: rotate(45deg);
+.traditional-word-layout .dept-title-view {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--duet-blue);
+    margin: 0 auto;
+    letter-spacing: 0.2px;
 }
 
-.logo-wrapper {
-    height: 95px;
+.traditional-word-layout .logo-wrapper {
+    height: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 3;
 }
-.logo-wrapper img {
-    max-height: 95px;
+.traditional-word-layout .logo-wrapper img {
+    max-height: 110px;
     object-fit: contain;
 }
 
-/* Document Assessment Box Area Layout */
-.assignment-meta-box {
-    border: 1px dashed rgba(0, 51, 102, 0.3);
+/* Bordered Section Design Framework */
+.course-info-bordered-box {
+    border: 1.5px solid #000000;
+    border-radius: 6px;
     background-color: rgba(0, 51, 102, 0.01);
-    border-radius: 8px;
     z-index: 3;
     position: relative;
 }
-.premium-accent-badge {
-    background-color: var(--duet-blue) !important;
-    color: #ffffff !important;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 6px 16px !important;
-    font-size: 9pt;
-    border-radius: 4px;
+
+.course-info-bordered-box .course-row-item {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16pt;
+    color: #000000;
 }
-.title-container-wrapper #viewExpTitle {
-    font-size: 18pt; /* Typography constraint criteria check compliance */
+
+.course-info-bordered-box .label-heading {
     font-weight: 700;
-    color: var(--duet-dark);
+    margin-right: 4px;
+}
+
+.course-info-bordered-box .value-highlight {
+    font-weight: 500;
+}
+
+.course-info-bordered-box #viewExpTitle {
+    font-size: 18pt;
+    font-weight: 700;
     line-height: 1.4;
-    margin: 0;
-    text-align: center;
+    color: #111111;
 }
 
-/* Course Metrics Information Block Framework */
-.course-metrics-container {
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    background-color: #fafafa;
-    z-index: 3;
-    overflow: hidden;
-}
-.metric-block {
-    padding: 12px 15px;
-}
-.uppercase-track {
-    text-transform: uppercase;
-    font-size: 8.5pt;
-    letter-spacing: 1.2px;
-    font-weight: 600;
-    color: #64748b;
-    display: block;
-    margin-bottom: 4px;
-}
-#viewCourseCode {
-    font-size: 15pt; /* Typography parameters binding verification mapping */
-    font-weight: 700;
-    color: var(--duet-blue);
-}
-#viewCourseTitle {
-    font-size: 15pt;
-    font-weight: 600;
-    color: var(--duet-dark);
-}
-
-/* Personnel Information Cards Layout Grid */
+/* Section Card Layouts for Submissions */
 .personnel-grid {
     z-index: 3;
     flex-grow: 1;
 }
+
 .professional-info-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 18px;
     position: relative;
 }
+
 .professional-info-card::before {
     content: "";
     position: absolute;
@@ -350,101 +244,70 @@ body {
     width: 4px;
     height: 100%;
     background-color: var(--duet-blue);
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-.block-heading {
-    font-size: 10pt;
-    letter-spacing: 1.2px;
-    font-weight: 700;
-    color: #64748b;
-    border-bottom: 1px dashed #e2e8f0;
-    padding-bottom: 6px;
-    margin: 0;
-}
-.meta-profile h6 {
-    font-size: 14pt; /* Adaptive rendering metrics font map scaling wrapper */
-    font-weight: 700;
-    color: var(--duet-dark);
-    margin-bottom: 6px;
-}
-.meta-profile p, .designation-text, .dept-sub-text {
-    font-size: 11pt;
-    color: #475569;
-    margin: 0;
-    line-height: 1.4;
-}
-.institution-tag {
-    font-size: 9pt;
-    font-weight: 700;
-    color: var(--duet-blue);
-    letter-spacing: 0.5px;
-}
-.student-meta-item {
-    display: flex;
-    font-size: 11pt;
-    margin-bottom: 4px;
-}
-.student-meta-item .meta-label {
-    color: #64748b;
-    width: 110px;
-    flex-shrink: 0;
-}
-.student-meta-item .meta-value {
-    color: var(--duet-dark);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
-/* Digital Signature Framework Area Blocks */
-.signature-section-wrapper {
+.professional-info-card .block-heading {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #444444;
+    border-bottom: 1px dashed #cccccc;
+    padding-bottom: 4px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+.professional-info-card h6 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.professional-info-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+}
+
+/* Footer Section Alignment */
+.a4-footer {
     z-index: 3;
     margin-top: auto;
+    border-top: 1px solid #dddddd !important;
 }
+
+.a4-footer strong {
+    font-size: 12pt;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .signature-block {
-    width: 160px;
+    width: 170px;
     display: inline-block;
 }
+
 .signature-line {
-    border-bottom: 1px solid #94a3b8;
-    height: 45px;
+    border-bottom: 1px solid #888888;
+    height: 40px;
     width: 100%;
     margin-bottom: 6px;
 }
+
 .signature-label {
     font-size: 8.5pt;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     font-weight: 600;
-    color: #64748b;
+    color: #555555;
     display: block;
 }
 
-/* Structural Clean Base A4 Document Footer Layout */
-.a4-footer {
-    z-index: 3;
-    border-top: 1px solid #e2e8f0 !important;
-}
-.footer-date-label {
-    font-size: 8pt;
-    letter-spacing: 1px;
-    font-weight: 600;
-    color: #64748b;
-    display: block;
-}
-.a4-footer strong {
-    font-size: 11pt;
-}
-.footer-branding-tag {
-    font-size: 8pt;
-    letter-spacing: 1.5px;
-    font-weight: 500;
-    color: #94a3b8;
-}
-
-/* Serif Font Overrides Helper */
 .font-serif {
     font-family: 'Times New Roman', Times, serif !important;
 }
 
-/* Global scale down adjustment rule for container UI workflow interface metrics preview screen layout adjustments */
+/* Global scale down adjustment rule for container UI workflow interface metrics preview screen layout adjustments[cite: 6] */
 @media (max-width: 1400px) {
     .preview-container {
         padding: 10px;
@@ -487,7 +350,7 @@ body {
     }
 }
 
-/* Explicit layouts engineered for system print windows output processing configurations */
+/* Explicit device print configurations[cite: 6] */
 @media print {
     body * {
         visibility: hidden;
@@ -505,11 +368,5 @@ body {
         box-shadow: none !important;
         transform: scale(1) !important;
         margin: 0 !important;
-    }
-    .premium-border-layout::before {
-        border-color: #dddddd !important;
-    }
-    .premium-border-layout::after {
-        border-color: #003366 !important;
     }
 }
